@@ -18,7 +18,7 @@
         <tr v-for="file in files" :key="file.name">
           <td>{{ file.name }}</td>
           <td>{{ (file.size / 1024).toFixed(2) }} Ko</td>
-          <td>{{ new Date(file.lastModified).toLocaleString() }}</td>
+          <td>{{ new Date(file.lastModified).toLocaleString('fr-FR') }}</td>
           <td>
             <button @click="onDownload(file.name)">Télécharger</button>
             <button @click="onDelete(file.name)">Supprimer</button>
