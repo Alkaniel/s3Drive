@@ -1,0 +1,16 @@
+name: CI/CD S3Drive
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Build and deploy
+        run: |
+          docker compose down
+          docker compose up --build -d
