@@ -16,6 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Link .env
+        run: ln -sf /opt/s3drive/.env .env
+
+
       - name: Build and deploy
         run: |
           docker compose down
