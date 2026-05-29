@@ -1,0 +1,12 @@
+.env
+.env.local
+
+k8s/secrets.yml
+
+**/target/
+**/node_modules/
+
+.vscode/
+.idea/
+**/.vscode/
+**/.idea/
