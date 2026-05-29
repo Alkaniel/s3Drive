@@ -1,11 +1,11 @@
 services:
   backend:
     build: ./backend
-    environment:
-      - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
-      - SPRING_APPLICATION_JSON={"aws.accessKeyId":"${AWS_ACCESS_KEY}","aws.secretKey":"${AWS_SECRET_KEY}","aws.region":"${AWS_REGION}","aws.bucketName":"${AWS_BUCKET_NAME}","cors.allowed-origins":"${ALLOWED_ORIGINS}"}
+    env_file: .env
     ports:
       - "8080:8080"
+    networks:
+      - s3drive-network
 
   frontend:
     build: ./frontend
@@ -13,3 +13,9 @@ services:
       - "80:80"
     depends_on:
       - backend
+    networks:
+      - s3drive-network
+
+networks:
+  s3drive-network:
+    driver: bridge
